@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="IBM Software Development Platform">
+<TITLE>Customer Account Credit Input Form</TITLE>
+
+<!--Styles-->
+<!--Styles-->
+<STYLE type="text/css">
+<!--
+BODY
+{
+background-color: #f8f7cd;
+}
+H1 {
+	text-align: center !IMPORTANT;
+}
+H2 {
+	color: #993333 !important;
+	text-align: left !important;
+}
+TH {
+	text-align: left !IMPORTANT;
+	vertical-align: top !IMPORTANT;
+}
+
+TD {
+	text-align: left !IMPORTANT;
+	vertical-align: top !IMPORTANT;
+}
+
+TH.result {
+	background-color: #999999 !IMPORTANT;
+}
+
+TD.result {
+	background-color: #cccccc;
+	vertical-align: top !IMPORTANT;
+}
+-->
+</STYLE>
+
+
+</HEAD>
+
+<BODY>
+<!--Java Script-->
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+	function submitForm(){
+		document.myForm.submit()
+	}
+//-->
+</SCRIPT>
+
+<!--Banner-->
+<H1>Customer Credit Form</H1>
+<BR>
+<!--Form-->
+ <FORM name="myForm" method="POST" action="CustomerCredit" style="text-align: center;">
+ <INPUT TYPE="SUBMIT" NAME="submit" VALUE="Submit" >
+
+<A href="javascript:submitForm()"></A>
+<BR>
+<h3 align='center'>* Indicates Required Fields</h3>
+<!--Input Fields-->
+<TABLE align='center' border="8" bgcolor="#cccccc" bordercolor="#FFCC99">
+	<TBODY>
+		<TR>
+			<TH>Customer number (e.g. 1)*<br>(note: range is 1-8)</TH>
+			<TD><INPUT name='customerNumber' type='text' value=1></TD>
+		</TR>
+		<TR>
+			<TH>Amount to credit to customer (e.g. 1.00)*</TH>
+			<TD><INPUT name='customerAmount' type='text' value=1.00></TD>
+		</TR>				
+	</TBODY>
+</TABLE>
+<BR>
+<BR>
+<BR>
+<!--Hidden Fields--></FORM>
+<FORM name="myForm" method="POST" action="PopulateDB" style="text-align: center;">
+ <INPUT TYPE="SUBMIT" NAME="submit" VALUE="Populate Database(Reset DB)" ><br>note: on DB2  and Oracle you must pre-create the CUSTDB1 database<br>before running Populate Database
+<!--Hidden Fields--></FORM>
+<FORM name="myForm" method="POST" action="ListDB" style="text-align: center;">
+ <INPUT TYPE="SUBMIT" NAME="submit" VALUE="List Database Contents" >
+<!--Hidden Fields--></FORM>
+</BODY>
+</HTML>

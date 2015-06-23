@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="CustomerQuery">
+		<jta-data-source>java:comp/env/jdbc/MyDataSource</jta-data-source>
+		<class>myjpa.CustomerAcct</class>
+		<!-- exclude-unlisted-classes>true</exclude-unlisted-classes -->
+		<properties>
+		    <property name="openjpa.LockTimeout" value="30000" />
+			<property name="openjpa.jdbc.TransactionIsolation" value="read-committed" />
+			<property name="openjpa.Log" value="none" />
+			<property name="openjpa.jdbc.UpdateManager" value="operation-order" />
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="TEST" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url"     value="jdbc:db2://23.246.228.246:50000/I3844656"/>
+      <property name="javax.persistence.jdbc.password" value="4c7wvw93kwke"/>
+      <property name="javax.persistence.jdbc.driver"     value="com.ibm.db2.jcc.DB2Driver"/>
+      <property name="javax.persistence.jdbc.user" value="rbwytoem"/>
+    </properties>    
+  </persistence-unit>
+</persistence>

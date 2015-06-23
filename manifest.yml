@@ -1,0 +1,13 @@
+---
+applications:
+- disk_quota: 1024M
+  host: accountbalance
+  name: accountbalance
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 512M
+  services: {
+    }
+  env: {
+    }
