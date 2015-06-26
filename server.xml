@@ -1,0 +1,40 @@
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jsp-2.2</feature>
+        <feature>jpa-2.0</feature>
+         <feature>jdbc-4.0</feature>
+        <feature>localConnector-1.0</feature>
+    </featureManager>
+
+
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+
+
+    <applicationMonitor updateTrigger="mbean"/>
+
+
+     <httpEndpoint host="*" httpPort="9080" id="defaultHttpEndpoint">
+    <tcpOptions soReuseAddr="true"/>
+  </httpEndpoint>   
+
+  <jdbcDriver id="DB2JDBCDriver" libraryRef="DB2"/>
+
+    <library id="DB2" name="DB2 Shared Library">
+        <fileset dir="${shared.resource.dir}/db2" includes="*.jar"/>
+    </library>
+
+<dataSource beginTranForVendorAPIs="false" id="MyDataSource" jdbcDriverRef="DB2JDBCDriver" jndiName="jdbc/MyDataSource" type="javax.sql.DataSource">
+     	<properties.db2.jcc currentLockTimeout="10s" databaseName="I3844656" id="MyDataSource-props" password="zfszsvfbrabw" portNumber="50000" serverName="23.246.228.246" user="rnmgelnd"/> 
+
+     	<connectionManager connectionTimeout="10s" maxConnectionsPerThread="10" maxPoolSize="25" minPoolSize="5"/>
+    </dataSource>   
+
+
+  <logging traceSpecification="*=audit:JPA=all"/>
+
+    <webApplication id="AccountBalance" location="AccountBalance.war" name="AccountBalance"/>
+</server>
